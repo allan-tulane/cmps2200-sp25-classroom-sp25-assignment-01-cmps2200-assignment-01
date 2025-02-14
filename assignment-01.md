@@ -11,39 +11,40 @@ In this assignment, you will learn more about asymptotic notation, parallelism, 
 
 1. (2 pts ea) **Asymptotic notation** (12 pts)
 
-  - 1a. Is $2^{n+1} \in O(2^n)$? Why or why not?
+  - **1a. Is $2^{n+1} \in O(2^n)$? Why or why not?**
+
+    **Yes**
+
+    $2^{n+1} = 2*2^n$
+
+    the constant factor of 2 does not affect Big-O notation
     
-**Yes**
 
-$2^{n+1} = 2*2^n$
-
-the constant factor of 2 does not affect Big-O notation
-
-  - 1b. Is $2^{2^n} \in O(2^n)$? Why or why not?
+  - **1b. Is $2^{2^n} \in O(2^n)$? Why or why not?**
  
-**No**
+    **No**
+    
+    $2^{2^n}$ grows much faster than $2^n$ 
+    
+    $2^{2^n}$ is an exponetial function squared so it will have a significantly faster growth rate.
 
-$2^{2^n}$ grows much faster than $2^n$ 
+  - **1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?**
+  -  
+    **No**
+    
+    $n^{1.01}$ is a polynomial function and $\mathrm{log}^2 n$ is log function. In Big-O notation polynomial functions always dominate log fucntions
 
-$2^{2^n}$ is an exponetial of an exponential so 
-
-  - 1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?    
+  - **1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?**  
 .  
 .  
 .  
 .  
-
-  - 1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?  
+  - **1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?**  
 .  
 .  
 .  
 .  
-  - 1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?  
-.  
-.  
-.  
-.  
-  - 1f. Is $\sqrt{n} \in \Omega((\mathrm{log} n)^3)$?  
+  - **1f. Is $\sqrt{n} \in \Omega((\mathrm{log} n)^3)$?**
 .  
 
 
