@@ -2,7 +2,7 @@
 
 # CMPS 2200 Assignment 1
 
-**Name:**_________________________
+**Name:** Madeline Davis
 
 
 In this assignment, you will learn more about asymptotic notation, parallelism, functional languages, and algorithmic cost models. As in the recitation, some of your answer will go here and some will go in `main.py`. You are welcome to edit this `assignment-01.md` file directly, or print and fill in by hand. If you do the latter, please scan to a file `assignment-01.pdf` and push to your github repository. 
@@ -11,37 +11,62 @@ In this assignment, you will learn more about asymptotic notation, parallelism, 
 
 1. (2 pts ea) **Asymptotic notation** (12 pts)
 
-  - 1a. Is $2^{n+1} \in O(2^n)$? Why or why not? 
-.  
-.  
-.  
-.  
-. 
-  - 1b. Is $2^{2^n} \in O(2^n)$? Why or why not?     
-.  
-.  
-.  
-.  
-.  
-  - 1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?    
-.  
-.  
-.  
-.  
+  - **1a. Is $2^{n+1} \in O(2^n)$? Why or why not?**
 
-  - 1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?  
-.  
-.  
-.  
-.  
-  - 1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?  
-.  
-.  
-.  
-.  
-  - 1f. Is $\sqrt{n} \in \Omega((\mathrm{log} n)^3)$?  
-.  
+**Yes**
 
+$2^{n+1} = 2*2^n$
+
+the constant factor of 2 does not affect Big-O notation
+
+$\lim \frac{2^{n+1}}{2^n} = \lim\frac{2*2^n}{2^n} =\lim 2 =2$
+
+$2>0$ so $2^{n+1} \in \Theta(2^n)$
+
+$\Theta(2^n) = O(2^n)$ and $\Omega(2^n)$
+    
+
+  - **1b. Is $2^{2^n} \in O(2^n)$? Why or why not?**
+ 
+**No**
+    
+$2^{2^n}$ grows much faster than $2^n$ 
+    
+$2^{2^n}$ is an exponetial function squared so it will have a significantly faster growth rate.
+
+$\lim \frac{2^{2^n}}{2^n}= \lim \frac{2^{n}}{n} = \infty $
+
+  - **1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?**
+     
+**No**
+    
+$n^{1.01}$ is a polynomial function and $\mathrm{log}^2 n$ is log function. In Big-O notation polynomial functions always dominate log fucntions
+
+$\lim \frac{n^{1.01}}{\log^2 n}= \infty $
+
+  - **1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?**
+
+**Yes**
+
+$\lim \frac{n^{1.01}}{\log^2 n}= \infty $
+
+this means that $n^{1.01}$  is asymptotically lower-bounded by $\log^2 n$
+
+  - **1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?**
+
+**No**
+
+$\lim \frac{\sqrt{n}}{\mathrm{log} n^3} = \infty $
+
+polynomial functions always always dominate log fucntions
+ 
+  - **1f. Is $\sqrt{n} \in \Omega((\mathrm{log} n)^3)$?**
+.  
+**Yes**
+
+$\lim \frac{\sqrt{n}}{\mathrm{log} n^3} = \infty $
+
+this means that $\sqrt{n}$  is asymptotically lower-bounded by $\mathrm{log} n^3$
 
 2. **SPARC to Python** (12 pts)
 
@@ -60,16 +85,9 @@ $$
 
   - 2a. (6 pts) Translate this to Python code -- fill in the `def foo` method in `main.py`  
 
-  - 2b. (6 pts) What does this function do, in your own words?  
+  - 2b. (6 pts) What does this function do, in your own words?
 
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
+This function calculates the Fibonacci sequence recursively. The function's base case is when x is 0 or 1 and it returns x. For other cases it recursively computes foo(x-1) and foo(x-2) and the sum of those to values is foo(x).
   
 
 3. **Parallelism and recursion** (26 pts)
@@ -90,43 +108,23 @@ E.g., `longest_run([2,12,12,8,12,12,12,0,12,1], 12) == 3`
  
   - 3a. (7 pts) First, implement an iterative, sequential version of `longest_run` in `main.py`.  
 
-  - 3b. (4 pts) What is the Work and Span of this implementation?  
+  - 3b. (4 pts) What is the Work and Span of this implementation?
 
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
+Work is $O(n)$ since we go through the array once.
 
+The span is also $O(n)$, because there is no parallelism
 
   - 3c. (7 pts) Next, implement a `longest_run_recursive`, a recursive, divide and conquer implementation. This is analogous to our implementation of `sum_list_recursive`. To do so, you will need to think about how to combine partial solutions from each recursive call. Make use of the provided class `Result`.   
 
-  - 3d. (4 pts) What is the Work and Span of this sequential algorithm?  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
+  - 3d. (4 pts) What is the Work and Span of this sequential algorithm?
 
+Work is $O(n)$ since each element is processed
+
+However the span is $O(\log n)$ since at each step we divide the problem in half
 
   - 3e. (4 pts) Assume that we parallelize in a similar way we did with `sum_list_recursive`. That is, each recursive call spawns a new thread. What is the Work and Span of this algorithm?  
 
-.  
-.  
-.  
-.  
-.  
-.  
-.  
-.  
+Work: $O(n)$
+
+Span: $O(\log n)$
 
