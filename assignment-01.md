@@ -13,52 +13,60 @@ In this assignment, you will learn more about asymptotic notation, parallelism, 
 
   - **1a. Is $2^{n+1} \in O(2^n)$? Why or why not?**
 
-    **Yes**
+**Yes**
 
-    $2^{n+1} = 2*2^n$
+$2^{n+1} = 2*2^n$
 
-    the constant factor of 2 does not affect Big-O notation
+the constant factor of 2 does not affect Big-O notation
 
-    $\lim \frac{2^{n+1}}{2^n} = \lim\frac{2*2^n}{2^n} =\lim 2 =2$
+$\lim \frac{2^{n+1}}{2^n} = \lim\frac{2*2^n}{2^n} =\lim 2 =2$
 
-    $2>0$ so $2^{n+1} \in \Theta(2^n)$
+$2>0$ so $2^{n+1} \in \Theta(2^n)$
 
-    $\Theta(2^n) = O(2^n)$ and $\Omega(2^n)$
+$\Theta(2^n) = O(2^n)$ and $\Omega(2^n)$
     
 
   - **1b. Is $2^{2^n} \in O(2^n)$? Why or why not?**
  
-    **No**
+**No**
     
-    $2^{2^n}$ grows much faster than $2^n$ 
+$2^{2^n}$ grows much faster than $2^n$ 
     
-    $2^{2^n}$ is an exponetial function squared so it will have a significantly faster growth rate.
+$2^{2^n}$ is an exponetial function squared so it will have a significantly faster growth rate.
 
-    $\lim \frac{2^{2^n}}{2^n}= \lim \frac{2^{n}}{n} = \infty $
+$\lim \frac{2^{2^n}}{2^n}= \lim \frac{2^{n}}{n} = \infty $
 
   - **1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?**
      
-    **No**
+**No**
     
-    $n^{1.01}$ is a polynomial function and $\mathrm{log}^2 n$ is log function. In Big-O notation polynomial functions always dominate log fucntions
+$n^{1.01}$ is a polynomial function and $\mathrm{log}^2 n$ is log function. In Big-O notation polynomial functions always dominate log fucntions
 
-    $\lim \frac{n^{1.01}}{\log^2 n}= \infty $
+$\lim \frac{n^{1.01}}{\log^2 n}= \infty $
+
   - **1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?**
 
-     **Yes**
+**Yes**
 
-     $\lim \frac{n^{1.01}}{\log^2 n}= \infty $
+$\lim \frac{n^{1.01}}{\log^2 n}= \infty $
 
-    so the 
+this means that $n^{1.01}$  is asymptotically lower-bounded by $\log^2 n$
 
-  - **1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?**  
-.  
-.  
-.  
-.  
+  - **1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?**
+
+**No**
+
+$\lim \frac{\sqrt{n}}{\mathrm{log} n^3} = \infty $
+
+polynomial functions always always dominate log fucntions
+ 
   - **1f. Is $\sqrt{n} \in \Omega((\mathrm{log} n)^3)$?**
 .  
+**Yes**
 
+$\lim \frac{\sqrt{n}}{\mathrm{log} n^3} = \infty $
+
+this means that $\sqrt{n}$  is asymptotically lower-bounded by $\mathrm{log} n^3$
 
 2. **SPARC to Python** (12 pts)
 
