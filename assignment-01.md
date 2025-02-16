@@ -18,6 +18,12 @@ In this assignment, you will learn more about asymptotic notation, parallelism, 
     $2^{n+1} = 2*2^n$
 
     the constant factor of 2 does not affect Big-O notation
+
+    $\lim \frac{2^{n+1}}{2^n} = \lim\frac{2*2^n}{2^n} =\lim 2 =2$
+
+    $2>0$ so $2^{n+1} \in \Theta(2^n)$
+
+    $\Theta(2^n) = O(2^n)$ and $\Omega(2^n)$
     
 
   - **1b. Is $2^{2^n} \in O(2^n)$? Why or why not?**
@@ -28,17 +34,23 @@ In this assignment, you will learn more about asymptotic notation, parallelism, 
     
     $2^{2^n}$ is an exponetial function squared so it will have a significantly faster growth rate.
 
+    $\lim \frac{2^{2^n}}{2^n}= \lim \frac{2^{n}}{n} = \infty $
+
   - **1c. Is $n^{1.01} \in O(\mathrm{log}^2 n)$?**
-  -  
+     
     **No**
     
     $n^{1.01}$ is a polynomial function and $\mathrm{log}^2 n$ is log function. In Big-O notation polynomial functions always dominate log fucntions
 
-  - **1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?**  
-.  
-.  
-.  
-.  
+    $\lim \frac{n^{1.01}}{\log^2 n}= \infty $
+  - **1d. Is $n^{1.01} \in \Omega(\mathrm{log}^2 n)$?**
+
+     **Yes**
+
+     $\lim \frac{n^{1.01}}{\log^2 n}= \infty $
+
+    so the 
+
   - **1e. Is $\sqrt{n} \in O((\mathrm{log} n)^3)$?**  
 .  
 .  
